@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "pnpm prepare && wrangler dev",
+    "postinstall": "pnpm prepare",
     "prepare": "pnpm tsx scripts/routes.ts",
     "worker": "pnpm prepare && wrangler deploy",
     "lint": "pnpm lint:eslint --fix",

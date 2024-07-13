@@ -1,5 +1,6 @@
 import { readdirSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { fileURLToPath } from "node:url";
+import path from "path";
 
 const routesDir = fileURLToPath(new URL("../src/routes", import.meta.url));
 
@@ -9,7 +10,7 @@ const routeMappings = routesFiles.reduce((acc: { imports: string[], handlers: st
   if (file.isDirectory()) return acc;
   const [routeName, routeMethod = "get"] = file.name.split(".");
 
-  const routeSplit = file.parentPath.split("src\\routes")[1].split("\\");
+  const routeSplit = file.parentPath.split(path.join("src", "routes"))[1].split(path.sep);
   const routeJoin = routeSplit.join("/");
 
   const routePath = `${routeJoin}${routeName === "index" ? "/" : `/${routeName}`}`;
