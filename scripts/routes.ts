@@ -2,7 +2,10 @@ import { readdirSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { fileURLToPath } from "node:url";
 import path from "path";
 
+
 const routesDir = fileURLToPath(new URL("../src/routes", import.meta.url));
+
+if (!existsSync(routesDir)) throw new Error("No routes found!, please create route files in src/routes");
 
 const routesFiles = readdirSync(routesDir, { recursive: true, withFileTypes: true });
 
