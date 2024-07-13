@@ -35,15 +35,17 @@ if (!routesFolderExists) {
   console.info("Created .routes folder!");
 }
 
-const h3Imports = "import { createApp, createRouter } from \"h3\";";
+const h3Imports = "import { createApp, createRouter, defineEventHandler } from \"h3\";";
 const h3App = `
 export const app = createApp();
 
 const router = createRouter();
 app.use(router);
+
+router.get("/**", defineEventHandler(() => ({ message: "Not Found" }))); // fallback
 `.trim();
 
-const fileContent = `${h3Imports}\n${routeImports}\n\n${h3App}\n\n${routeHandlers}\n`;
+const fileContent = `${h3Imports}\n${routeImports}\n\n${h3App}\n${routeHandlers}\n`;
 
 writeFileSync(fileURLToPath(new URL("../.routes/index.ts", import.meta.url)), fileContent, { encoding: "utf-8" });
 
