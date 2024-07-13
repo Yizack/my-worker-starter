@@ -5,8 +5,7 @@ export default [
   {
     files: ["**/*.js", "**/*.mjs", "**/*.ts"],
     ignores: [
-      "node_modules/**/*",
-      "dist/**/*"
+      "node_modules/**/*"
     ],
     plugins: {
       "@stylistic": stylistic

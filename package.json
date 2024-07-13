@@ -7,10 +7,9 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
-    "dev": "pnpm prepare && tsc && wrangler dev",
+    "dev": "pnpm prepare && wrangler dev",
     "prepare": "pnpm tsx scripts/routes.ts",
-    "worker": "pnpm prepare && tsc && wrangler deploy",
+    "worker": "pnpm prepare && wrangler deploy",
     "lint": "pnpm lint:eslint --fix",
     "lint:eslint": "eslint"
   },
