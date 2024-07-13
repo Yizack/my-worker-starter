@@ -11,10 +11,12 @@
     "prepare": "pnpm tsx scripts/routes.ts",
     "worker": "pnpm prepare && wrangler deploy",
     "lint": "pnpm lint:eslint --fix",
-    "lint:eslint": "eslint"
+    "lint:eslint": "eslint",
+    "test:types": "tsc --noEmit"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240712.0",
+    "@eslint/compat": "^1.1.1",
     "@stylistic/eslint-plugin": "^2.3.0",
     "@types/node": "^20.14.10",
     "@typescript-eslint/parser": "^7.16.0",
