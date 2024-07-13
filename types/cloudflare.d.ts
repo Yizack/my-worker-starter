@@ -1,4 +1,4 @@
-import type { CfProperties, ExecutionContext, R2Bucket, D1Database } from "@cloudflare/workers-types";
+import type { CfProperties, ExecutionContext } from "@cloudflare/workers-types";
 
 export {};
 
@@ -12,20 +12,5 @@ declare module "h3" {
       };
       context: ExecutionContext;
     };
-  }
-}
-
-declare global {
-
-  type Env = Record<string, string | undefined>;
-
-  interface CacheStorage extends CloudflareCacheStorage {
-    default: Cache;
-  }
-
-  type ExportedHandlerFetchHandler = (req: Request, env: Env, ctx: ExecutionContext) => Promise<Response>;
-
-  interface FetchHandler {
-    fetch?: ExportedHandlerFetchHandler;
   }
 }
