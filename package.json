@@ -8,9 +8,9 @@
   "license": "MIT",
   "scripts": {
     "postinstall": "pnpm dev:prepare",
-    "dev": "pnpm prepare && wrangler dev",
+    "dev": "pnpm dev:prepare && wrangler dev",
     "dev:prepare": "pnpm tsx scripts/routes.ts",
-    "worker": "pnpm prepare && wrangler deploy",
+    "worker": "pnpm dev:prepare && wrangler deploy",
     "lint": "pnpm lint:eslint --fix",
     "lint:eslint": "eslint",
     "test:types": "tsc --noEmit"
