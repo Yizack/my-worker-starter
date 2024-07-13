@@ -23,7 +23,7 @@ jobs:
         run: pnpm lint:eslint
 
       - name: 🚧 Build
-        run: pnpm build
+        run: pnpm build:worker
 
       - name: 🚀 Deploy
         uses: cloudflare/wrangler-action@v3
